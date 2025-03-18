@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "O'Reilly Translator",
+    "version": "1.0",
+    "description": "Extensión para traducir textos en O'Reilly usando Azure AI",
+    "permissions": ["activeTab", "scripting", "storage"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": [
+      "https://learning.oreilly.com/*"
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://learning.oreilly.com/*"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
+    ]
+  }
+  
