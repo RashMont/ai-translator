@@ -1,21 +1,27 @@
 {
   "manifest_version": 3,
-  "name": "Traductor ITLA con Azure",
+  "name": "Traductor con Azure AI",
   "version": "1.0",
-  "description": "Extensión para traducir texto en páginas web e imágenes usando Azure AI.",
-  "permissions": ["activeTab", "storage", "scripting"],
+  "description": "Selecciona texto o imágenes, usa Azure OCR y traduce con Azure Translator.",
+  "permissions": [
+      "activeTab",
+      "scripting",
+      "storage"
+  ],
+  "host_permissions": [
+      "<all_urls>"
+  ],
   "background": {
-    "service_worker": "background.js"
-  },
-  "host_permissions": ["https://*.cognitiveservices.azure.com/"],
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "icon.png"
+      "service_worker": "background.js"
   },
   "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ]
+      {
+          "matches": ["<all_urls>"],
+          "js": ["content.js"]
+      }
+  ],
+  "action": {
+      "default_popup": "popup.html",
+      "default_icon": "icon.png"
+  }
 }
